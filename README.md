@@ -92,3 +92,30 @@ def home():
 if _name_ == "_main_":
     app.run(debug=True)
 https://github.com/mainmn/moh-book/blob/main/1719141509237.jpg
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض الصورة</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>مرحبًا بك في صفحة عرض الصورة</h1>
+    <img src="images/your-image.jpg" alt="وصف الصورة">
+</body>
+</html>
