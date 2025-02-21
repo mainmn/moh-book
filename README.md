@@ -73,7 +73,7 @@ html_template = """
         <div class="book-list">
             {% for book in books %}
             <div class="book">
-                <img src="{{ book.image }}" alt="صورة الكتاب">
+                <img src="{https://github.com/mainmn/moh-book/blob/main/1719141509237.jpg}}" alt="صورة الكتاب">
                 <h2>{{ book.title }}</h2>
                 <p><strong>المؤلف:</strong> {{ book.author }}</p>
                 <p>{{ book.description }}</p>
@@ -91,3 +91,4 @@ def home():
 
 if _name_ == "_main_":
     app.run(debug=True)
+https://github.com/mainmn/moh-book/blob/main/1719141509237.jpg
