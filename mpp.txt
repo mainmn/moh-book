@@ -1,0 +1,58 @@
+from flask import Flask, render_template
+
+app = Flask(name)
+
+»Ì«‰«  «·ﬂ » (Ì„ﬂ‰  ⁄œÌ·Â« √Ê —»ÿÂ« »ﬁ«⁄œ… »Ì«‰« )
+
+books = [ {"title": "ﬂ «» 1", "author": "«·„ƒ·› «·√Ê·", "description": "Ê’› „Œ ’— ··ﬂ «» «·√Ê·", "image": "static/book1.jpg"}, {"title": "ﬂ «» 2", "author": "«·„ƒ·› «·À«‰Ì", "description": "Ê’› „Œ ’— ··ﬂ «» «·À«‰Ì", "image": "static/book2.jpg"}, {"title": "ﬂ «» 3", "author": "«·„ƒ·› «·À«·À", "description": "Ê’› „Œ ’— ··ﬂ «» «·À«·À", "image": "static/book3.jpg"} ]
+
+@app.route('/') def home(): return render_template('index.html', books=books)
+
+if name == 'main': app.run(debug=True)
+
+„·› HTML (templates/index.html)
+
+index_html = """
+
+<!DOCTYPE html><html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>„ﬂ »… ≈·ﬂ —Ê‰Ì…</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>„—Õ»« »ﬂ„ ›Ì «·„ﬂ »… «·≈·ﬂ —Ê‰Ì…</h1>
+    <div class="book-list">
+        {% for book in books %}
+        <div class="book">
+            <img src="{{ book.image }}" alt="’Ê—… «·ﬂ «»">
+            <h2>{{ book.title }}</h2>
+            <p><strong>«·„ƒ·›:</strong> {{ book.author }}</p>
+            <p>{{ book.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+"""„·› CSS (static/style.css)
+
+style_css = """ body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+
+h1 { color: #333; }
+
+.book-list { display: flex; flex-wrap: wrap; justify-content: center; }
+
+.book { background: white; padding: 15px; margin: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); width: 250px; text-align: center; }
+
+.book img { width: 100%; border-radius: 5px; } """
+
+≈‰‘«¡ «·„·›«   ·ﬁ«∆Ì« ⁄‰œ  ‘€Ì· «·»—‰«„Ã
+
+import os
+
+ios.makedirs("templates", exist_ok=True) ios.makedirs("static", exist_ok=True)
+
+with open("templates/index.html", "w", encoding="utf-8") as f: f.write(index_html)
+
+with open("static/style.css", "w", encoding="utf-8") as f: f.write(style_css)
