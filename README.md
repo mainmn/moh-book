@@ -21,13 +21,26 @@ html_template = """
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #1E90FF; /* خلفية زرقاء باردة */
             margin: 0;
             padding: 0;
+            color: white;
         }
         h1 {
-            color: #333;
             padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .image-container img {
+            width: 50%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
         .book-list {
             display: flex;
@@ -38,6 +51,7 @@ html_template = """
         }
         .book {
             background: white;
+            color: black;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -51,16 +65,21 @@ html_template = """
     </style>
 </head>
 <body>
-    <h1>مرحبًا بكم في المكتبة الإلكترونية</h1>
-    <div class="book-list">
-        {% for book in books %}
-        <div class="book">
-            <img src="{{ book.image }}" alt="صورة الكتاب">
-            <h2>{{ book.title }}</h2>
-            <p><strong>المؤلف:</strong> {{ book.author }}</p>
-            <p>{{ book.description }}</p>
+    <div class="container">
+        <h1>مرحبًا بكم في المكتبة الإلكترونية</h1>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/400" alt="صورة">
         </div>
-        {% endfor %}
+        <div class="book-list">
+            {% for book in books %}
+            <div class="book">
+                <img src="{{ book.image }}" alt="صورة الكتاب">
+                <h2>{{ book.title }}</h2>
+                <p><strong>المؤلف:</strong> {{ book.author }}</p>
+                <p>{{ book.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
@@ -70,5 +89,5 @@ html_template = """
 def home():
     return render_template_string(html_template, books=books)
 
-if _name_ == '_main_':
+if _name_ == "_main_":
     app.run(debug=True)
